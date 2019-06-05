@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="odev-dene.js"></script>
+</head>
+
+<body>
+  <!--
+10 tane kitap var
+Idler ile liste olusturun
+Kitaplarin resim ve bilgilerini iceren bi liste yapin
+1. odevde sadece ilk dizinin elemanlarini kullanarak ul>li olusturulacak
+
+  -->
+  <script>
+    const bookTitles = [
+      "in_search_of_lost_time",
+      "don_quixote",
+      "ulysses",
+      "the_great_gatsby",
+      "moby_dick",
+      "hamlet",
+      "war_and_peace",
+      "the_odyssey",
+      "one_hundred_years_of_solitude",
+      "the_brothers_karamazov"
+    ];
+    //body ve ul nin default olarak margin ve padding boşlukları var bunlardan dolayı onları sıfırlamalıyız ve sonra tüm boşluk kontrolünü biz sağlamalıyız
+    document.body.style.backgroundColor = "#eeee";
+    document.body.style.margin = "0";
+    document.body.style.padding = "0";
+
+    let icon = document.createElement("div");
+    document.body.appendChild(icon);
+    //icon etiketi içerisine i etiketini at i etiketine de class ve isim ekle "<i class="fas fa-toggle-on"></i>";
+    let iElement = document.createElement("i");
+    icon.appendChild(iElement);
+    iElement.setAttribute("class", "fas fa-toggle-on");
+    let h1Id1 = document.createElement("h1");
+    h1Id1.innerHTML = "My Book's Id";
+    h1Id1.style.margin = "30px 0px 20px 20px";
+    h1Id1.style.fontFamily = "tahoma";
+
+    let ulElement1 = document.createElement("ul");
+    ulElement1.setAttribute("id", "ulId1");
+    ulElement1.style.listStyleType = "none";
+    ulElement1.style.display = "flex";
+    //ulElement1.style.justifyContent = "space-around";
+    //ulElement1.style.alignItems = "flex-end";
+    ulElement1.style.flexWrap = "wrap";
+    //ulElement1.style.backgroundColor = "orange";
+    ulElement1.style.padding = "0px";
+    ulElement1.style.margin = "0";
+    for (let i = 0; i < bookTitles.length; i++) {
+      const bookOrder = bookTitles[i];
+      let liElement1 = document.createElement("li");
+      liElement1.innerText = bookOrder;
+      liElement1.style.backgroundColor = "#fff";
+      liElement1.style.boxShadow = "0 0 5px black";
+      //liElement1.style.border = "1px solid";
+      liElement1.style.flexBasis = "calc(25% - 20px)";
+      liElement1.style.height = "80px";
+      liElement1.style.lineHeight = "80px";
+      liElement1.style.boxSizing = "border-box";
+      liElement1.style.textAlign = "center";
+
+      liElement1.style.padding = "0px";
+      liElement1.style.margin = "10px";
+      ulElement1.style.padding = "10px";//Burası önemli çünkü en sağ ve en sol boşluk ile kutular arası boşluğun eşitlenmesini sağlayan kısımdır burası
+      //ulElement1.style.border = "1px solid";
+      document.body.appendChild(h1Id1);
+      document.body.appendChild(ulElement1);
+
+      ulElement1.appendChild(liElement1);
+
+    }
+    //Css eksiklerini halledecem aşağıdaki js kısmını da halledeyim ondan sonra oraya dönecem
+
+    const books = {
+      in_search_of_lost_time: {
+        title: "In Search of Lost Time",
+        language: "English",
+        author: "Marcel Proust"
+      },
+      don_quixote: {
+        title: "Don Quixote",
+        language: "English",
+        author: "Cervantes"
+      },
+      ulysses: {
+        title: "Ulysses",
+        language: "English",
+        author: "James Joyce"
+      },
+      the_great_gatsby: {
+        title: "The Great Gatsby",
+        language: "English",
+        author: "F. Scott Fitzgerald"
+      },
+      moby_dick: {
+        title: "Moby Dick",
+        language: "English",
+        author: "Herman Melville"
+      },
+      hamlet: {
+        title: "Hamlet",
+        language: "English",
+        author: "Shakespeare"
+      },
+      war_and_peace: {
+        title: "War and Peace",
+        language: "English",
+        author: "Leo Tolstoy"
+      },
+      the_odyssey: {
+        title: "The Odyssey",
+        language: "English",
+        author: "Homer"
+      },
+      one_hundred_years_of_solitude: {
+        title: "One Hundred Years of Solitude",
+        language: "English",
+        author: "Gabriel Garcia Marquez"
+      },
+      the_brothers_karamazov: {
+        title: "The Brothers Karamazov",
+        language: "English",
+        author: "Fyodor Dostoyevsky"
+      }
+    };
+
+    //console.log(books.the_brothers_karamazov.title);
+
+    /* for(let i=0; i<bookTitles.length; i++){
+          let bookTitle=bookTitles[i];
+          bookContent=books.bookTitle;
+          console.log(bookContent.title); }
+          */
+
+    //Şuna kesinlikle bakalım ben normalde dizi içerisinden id leri çekiyorum daha sonra for döngüsü içerisinde obje adı. id. title yapıyorum ancak sonuç alamıyorum bu hata neden veriyor buna bakalım bu önemli???
+
+    /*  */
+
+    let h1Id2 = document.createElement("h1");
+    h1Id2.innerHTML = "My Books";
+    h1Id2.style.margin = "30px 0px 20px 20px";
+    h1Id2.style.fontFamily = "tahoma";
+    let ulElement2 = document.createElement("ul");
+    ulElement2.setAttribute("id", "ulId2");
+    ulElement2.style.listStyle = "none";
+    ulElement2.style.display = "flex";
+    ulElement2.style.flexWrap = "wrap";
+    //ulElement2.style.backgroundColor = "cyan";
+    ulElement2.style.margin = "0";
+    ulElement2.style.padding = "0";
+
+    let bookTitle;
+    let bookLanguage;
+    let bookAuthor;
+    let property1;
+    for (let property1 in books) {
+      bookTitle = books[property1].title;
+      bookLanguage = books[property1].language;
+      bookAuthor = books[property1].author;
+
+
+      //Bu şekilde kitap id lerinin içeriğini alıyoruz
+      //console.log(bookTitle.title)//Burdda da örneğin kitap id sinin title ını alabildik
+      let liElement2 = document.createElement("li");
+      liElement2.style.flexBasis = "calc(25% - 20px)";
+      liElement2.style.boxSizing = "border-box";
+      liElement2.style.margin = "10px";
+      ulElement2.style.padding = "10px";
+      //ulElement2.style.border = "1px solid";
+      // liElement2.style.height = "500px";
+      liElement2.style.border = "0px solid";
+      liElement2.style.position = "relative";
+
+
+      let divElement1 = document.createElement("div");
+      divElement1.style.position = "absolute";
+
+      divElement1.style.bottom = "0px";
+      divElement1.style.width = "100%";
+      divElement1.style.textAlign = "center";
+      divElement1.style.backgroundColor = "#fff";
+      divElement1.style.padding = "10px 0  30px 0";
+      //divElement1.style.opacity = "100%"; Burayı bir kontrol edelim neden olmadı
+
+      divElement1.style.color = "#000";
+      let spanElement1 = document.createElement("p");
+      let spanElement2 = document.createElement("span");
+      let spanElement3 = document.createElement("span");
+      spanElement1.innerHTML = bookTitle;
+      spanElement1.style.font = "bold 16px tahoma";
+      spanElement1.style.marginBottom = "20px";
+      divElement1.style.border = "1px solid";
+      spanElement2.innerHTML = bookLanguage;
+      spanElement3.innerHTML = bookAuthor + "<br>";
+      divElement1.appendChild(spanElement1);
+
+      divElement1.appendChild(spanElement3);
+      divElement1.appendChild(spanElement2);
+
+
+      // divElement1.innerHTML = bookTitle + "<br>" + bookLanguage + "<br>" + bookAuthor;
+
+
+      let imgElement = document.createElement("img");
+
+
+
+
+      for (let i = 0; i < bookTitle.length; i++) {
+
+        bookTitle = bookTitle.replace(" ", "_");
+
+      }
+
+      let yeniImgName = bookTitle.toLowerCase();
+
+      imgElement.setAttribute("src", "img/" + yeniImgName + ".jpg");
+      imgElement.style.width = "100%";
+
+      document.body.appendChild(h1Id2);
+      document.body.appendChild(ulElement2);
+      ulElement2.appendChild(liElement2);
+      liElement2.appendChild(imgElement);
+      liElement2.appendChild(divElement1);
+    }
+
+//Obje içerisindeki ilk başlk elemanları yani properties ler i değişkene atadık
+
+
+  </script>
+
+
+</body>
+
+</html>
